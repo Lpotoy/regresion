@@ -1,5 +1,5 @@
 function regresion(data) {
-  var coefs;
+  var coefs; // es un arreglo que contiene los coeficientes del resultado a0, a1,a2
   var Se = 0, St = 0, yAvg = 0;
   var errorStd, Rcuad;
   
