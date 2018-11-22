@@ -3,18 +3,18 @@ function regresion(data) {
   var Se = 0, St = 0, yAvg = 0;
   var errorStd, Rcuad;
   
-  var order = data.length - 1;
-  var n = data[0].length;
+  var order = data.length - 1;//numero de variables independiente que se estan analizando
+  var n = data[0].length; //numero de observaciones
   
-  var A = [];
+  var A = []; 
   for (var i=0; i<=order; i++) {
     A.push([]);
     for (var j=0; j<=order+1; j++)
       A[i].push(0);
-  }
+  } //INICIALIZAR LA MATRIZ EN CEROS
        
   var ones = [];
-  for (var i=0; i<n; i++) ones.push(1);
+  for (var i=0; i<n; i++) ones.push(1); //se crea un arreglo y se llena con unos
   
   var X = Array.from(data);
   var Y = X.pop();
@@ -34,9 +34,9 @@ function regresion(data) {
     for (var l=0; l<n; l++)
       sum += Y[l]*X[i][l];
     A[i][order+1] = sum;
-  }
+  } //Codigo para establecer 
   
-  coefs = gauss(A);
+  coefs = gauss(A);//ejecuta el algoritmo de gauss con la matriz A
   
   for (var i=0; i<n; i++) {
     Se += Math.pow(Y[i]-sumprod(point(X,i),coefs),2);
