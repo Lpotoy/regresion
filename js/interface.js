@@ -26,7 +26,7 @@ function crearTabla(rows, cols) {
   esp.append(tabla);
 }
 
-document.querySelector("#order").addEventListener("input", function(e) {
+document.querySelector("#order").addEventListener("input", function(e) { //agrega manejadores de eventos para inputs
   order = +e.target.value;
   crearTabla(n,order+1);
 });
@@ -54,7 +54,7 @@ document.querySelector("button").addEventListener("click", function() {
   
   var elementos = document.querySelectorAll("table input");
 
-  for (var i = 0; i < elementos.length; i++) {
+  for (var i = 0; i < elementos.length; i++) { //lee los valores de los valores input que estan en la tabla y los inserta en el array data(bi)
     var v = +elementos[i].value;
     if (i <= order) {
       data.push([]);
